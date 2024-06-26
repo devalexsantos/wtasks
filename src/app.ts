@@ -1,7 +1,6 @@
 import fastify from 'fastify'
+import { tasksRoutes } from './http/controllers/tasks/routes'
 
 export const app = fastify()
 
-app.get('/', async () => {
-  return { hello: 'world' }
-})
+app.register(tasksRoutes)
