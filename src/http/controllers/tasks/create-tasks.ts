@@ -2,7 +2,7 @@ import { FastifyReply, FastifyRequest } from 'fastify'
 import { z } from 'zod'
 import { PrismaTasksRepository } from '../../repositories/prisma-tasks-repository'
 
-export async function createRepo(req: FastifyRequest, res: FastifyReply) {
+export async function createTask(req: FastifyRequest, res: FastifyReply) {
   const bodySchema = z.object({
     title: z.string(),
     description: z.string().optional(),

@@ -36,8 +36,20 @@ export class PrismaTasksRepository {
     return task
   }
 
-  async listAll() {
-    return prisma.task.findMany()
+  async listAll(id: string) {
+    return prisma.task.findMany({
+      where: {
+        userId: id,
+      },
+    })
+  }
+
+  async findOne(id: string) {
+    return prisma.task.findUnique({
+      where: {
+        id,
+      },
+    })
   }
 
   async update({
