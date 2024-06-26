@@ -8,6 +8,14 @@ type CreateTaskData = {
   categoryId?: string
 }
 
+type UpdateTaskData = {
+  id: string
+  title?: string
+  description?: string
+  statusId?: string
+  categoryId?: string
+}
+
 export class PrismaTasksRepository {
   async create({
     title,
@@ -30,5 +38,33 @@ export class PrismaTasksRepository {
 
   async listAll() {
     return prisma.task.findMany()
+  }
+
+  async update({
+    id,
+    title,
+    description,
+    statusId,
+    categoryId,
+  }: UpdateTaskData) {
+    return prisma.task.update({
+      where: {
+        id,
+      },
+      data: {
+        title,
+        description,
+        statusId,
+        categoryId,
+      },
+    })
+  }
+
+  async delete(id: string) {
+    return prisma.task.delete({
+      where: {
+        id,
+      },
+    })
   }
 }
