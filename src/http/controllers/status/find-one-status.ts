@@ -2,7 +2,7 @@ import { FastifyReply, FastifyRequest } from 'fastify'
 import { z } from 'zod'
 import { PrismaStatusRepository } from '../../repositories/prisma-status-repository'
 
-export async function listOneStatus(req: FastifyRequest, res: FastifyReply) {
+export async function findOneStatus(req: FastifyRequest, res: FastifyReply) {
   const bodySchema = z.object({
     id: z.string(),
   })
