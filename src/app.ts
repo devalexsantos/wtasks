@@ -2,7 +2,6 @@ import fastify, { FastifyReply, FastifyRequest } from 'fastify'
 import { tasksRoutes } from './http/controllers/tasks/routes'
 import { statusRoutes } from './http/controllers/status/routes'
 import { companyRoutes } from './http/controllers/company/routes'
-import { usersRoutes } from './http/controllers/user/routes'
 
 export const app = fastify()
 
@@ -21,4 +20,3 @@ app.addHook('preHandler', validateToken)
 app.register(tasksRoutes)
 app.register(statusRoutes)
 app.register(companyRoutes)
-app.register(usersRoutes)
